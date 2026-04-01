@@ -85,3 +85,138 @@
   background: rgba(201, 149, 32, 0.3);
   color: #fdf9f0;
 }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar for category nav */
+.menu-category-nav::-webkit-scrollbar {
+  display: none;
+}
+.menu-category-nav {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth image loading */
+.menu-item-image {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+}
+
+.menu-card:hover .menu-item-image {
+  transform: scale(1.08);
+}
+
+/* Card hover lift */
+.menu-card {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Glass morphism input */
+.glass-input {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-input:focus {
+  outline: none;
+}
+
+/* Filter pill transitions */
+.filter-pill {
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.filter-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Category tab underline animation */
+.category-tab {
+  position: relative;
+  transition: color 0.25s ease;
+}
+.category-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.category-tab.active::after {
+  width: 100%;
+}
+
+/* Meal builder item hover */
+.meal-option {
+  transition: all 0.2s ease;
+}
+.meal-option:hover {
+  transform: translateX(4px);
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-animate {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Popular badge pulse */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 0 8px 2px rgba(255, 215, 0, 0.2); }
+}
+
+.popular-badge {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Responsive grid */
+@media (max-width: 640px) {
+  .menu-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

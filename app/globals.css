@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f0cb56 0%, #c99520 50%, #e8b42d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 8, 17, 0.5) 0%,
+      rgba(4, 8, 17, 0.3) 40%,
+      rgba(4, 8, 17, 0.7) 80%,
+      rgba(4, 8, 17, 0.95) 100%
+    );
+  }
+
+  .section-fade-in {
+    animation: fadeInUp 0.7s ease forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040811;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c99520;
+  border-radius: 3px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(201, 149, 32, 0.3);
+  color: #fdf9f0;
+}
